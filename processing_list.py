@@ -29,7 +29,7 @@ def ImgNegative(img_input, coldepth):
     return img_output
 
 
-def ImgRotate(img_input, coldepth, deg, direction):
+def ImgRotate90(img_input, coldepth, deg, direction):
     # solusi 1
     # img_output=img_input.rotate(deg)
 
@@ -58,6 +58,53 @@ def ImgRotate(img_input, coldepth, deg, direction):
     else:
         img_output = img_output.convert("RGB")
 
+    return img_output
+
+
+def ImgRotate180(img_input, coldepth, deg, direction):
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    img_output = Image.new('RGB', (img_input.size[0], img_input.size[1]))
+    pixels = img_output.load()
+    for i in range(img_output.size[0]):
+        for j in range(img_output.size[1]):
+            if direction == "C":
+                r, g, b = img_input.getpixel(
+                    (img_output.size[1]-i-1, img_output.size[0]-j-1))
+            else:
+                r, g, b = img_input.getpixel((img_output.size[0]-j-1, i))
+            pixels[i, j] = (r, g, b)
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+    return img_output
+
+
+def ImgRotate270(img_input, coldepth, deg, direction):
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    img_output = Image.new('RGB', (img_input.size[1], img_input.size[0]))
+    pixels = img_output.load()
+    for i in range(img_output.size[0]):
+        for j in range(img_output.size[1]):
+            if direction == "C":
+                r, g, b = img_input.getpixel((img_output.size[1]-j-1, i))
+            else:
+                r, g, b = img_input.getpixel((img_input.size[1]-j-1, i))
+            pixels[i, j] = (r, g, b)
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
     return img_output
 
 
@@ -153,9 +200,87 @@ def ImgPowerLaw(img_input, coldepth, gamma):
     for i in range(img_output.size[0]):
         for j in range(img_output.size[1]):
             r, g, b = img_input.getpixel((i, j))
-            print(r)
+            # print(r)
             pixels[i, j] = (int(255*(r/255)**gamma),
-                            int(255*(r/255)**gamma), int(255*(b/255)**gamma))
+                            int(255*(g/255)**gamma), int(255*(b/255)**gamma))
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+
+    return img_output
+
+
+def ImgFlippingVertikal(img_input, coldepth):
+
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    PIXEL = img_input.load()
+
+    ukuran_horizontal = img_input.size[0]
+    ukuran_vertikal = img_input.size[1]
+
+    img_output = Image.new("RGB", (ukuran_horizontal, ukuran_vertikal))
+    PIXEL_BARU = img_output.load()
+
+    for x in range(ukuran_horizontal):
+        for y in range(ukuran_vertikal):
+            PIXEL_BARU[x, y] = PIXEL[x, ukuran_vertikal - 1 - y]
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+
+    return img_output
+
+
+def ImgFlippingHorizontal(img_input, coldepth):
+
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    PIXEL = img_input.load()
+
+    ukuran_horizontal = img_input.size[0]
+    ukuran_vertikal = img_input.size[1]
+
+    img_output = Image.new("RGB", (ukuran_horizontal, ukuran_vertikal))
+    PIXEL_BARU = img_output.load()
+
+    for x in range(ukuran_horizontal):
+        for y in range(ukuran_vertikal):
+            PIXEL_BARU[x, y] = PIXEL[ukuran_horizontal - 1 - x, y]
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+
+    return img_output
+
+
+def ImgFlippingVerHor(img_input, coldepth):
+    #img_output = img_input.transpose(Image.FLIP_LEFT_RIGHT)
+
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    img_output = Image.new('RGB', (img_input.size[0], img_input.size[1]))
+    pixels = img_output.load()
+    for i in range(img_output.size[0]):
+        for j in range(img_output.size[0]):
+            r, g, b = img_input.getpixel(
+                ((img_output.size[0]-1)-i, (img_output.size[1]-1)-j))
+            pixels[i, j] = (r, g, b)
 
     if coldepth == 1:
         img_output = img_output.convert("1")

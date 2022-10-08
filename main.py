@@ -69,11 +69,31 @@ while True:
         except:
             pass
 
-    elif event == "ImgRotate":
+    elif event == "ImgRotate90":
 
         try:
-            window["ImgProcessingType"].update("Image Rotate")
-            img_output = ImgRotate(img_input, coldepth, 90, "C")
+            window["ImgProcessingType"].update("Image Rotate 90°")
+            img_output = ImgRotate90(img_input, coldepth, 90, "C")
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+
+        except:
+            pass
+
+    elif event == "ImgRotate180":
+        try:
+            window["ImgProcessingType"].update("Image Rotate 180°")
+            img_output = ImgRotate180(img_input, coldepth, 180, "C")
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+
+        except:
+            pass
+
+    elif event == "ImgRotate270":
+        try:
+            window["ImgProcessingType"].update("Image Rotate 270°")
+            img_output = ImgRotate270(img_input, coldepth, 270, "C")
             img_output.save(filename_out)
             window["ImgOutputViewer"].update(filename=filename_out)
 
@@ -122,4 +142,36 @@ while True:
             window["ImgOutputViewer"].update(filename=filename_out)
         except:
             pass
+
+    elif event == "ImgFlippingVertikal":
+
+        try:
+            window["ImgProcessingType"].update("Image Flip Vertikal")
+            img_output = ImgFlippingVertikal(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgFlippingHorizontal":
+
+        try:
+            window["ImgProcessingType"].update("Image Flip Horizontal")
+            img_output = ImgFlippingHorizontal(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgFlippingVerHor":
+
+        try:
+            window["ImgProcessingType"].update("Image Flip ")
+            img_output = ImgFlippingVerHor(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+
 window.close()
