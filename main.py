@@ -1,3 +1,4 @@
+from re import T
 from layout import *
 import PySimpleGUI as sg  # import library pysimplegui
 import os.path  # import library os
@@ -168,6 +169,18 @@ while True:
         try:
             window["ImgProcessingType"].update("Image Flip ")
             img_output = ImgFlippingVerHor(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgTranslation":
+        try:
+
+            axisX = int(values["inputAxisX"])
+            axisY = int(values["inputAxisY"])
+            window["ImgProcessingType"].update("Translation Image")
+            img_output = TranslasiXY(img_input, coldepth, axisX, axisY)
             img_output.save(filename_out)
             window["ImgOutputViewer"].update(filename=filename_out)
         except:

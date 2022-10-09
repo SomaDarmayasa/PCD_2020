@@ -85,6 +85,15 @@ list_processing = [
      sg.Button("Horizontal", size=(9, 1), key="ImgFlippingHorizontal")],
     [sg.Button("Vertikal Horizontal  ", size=(
         9, 2), key="ImgFlippingVerHor")],
+    [sg.HSeparator()],
+    [sg.Text("Image Translation:"), ],
+    [sg.Text("x : "), sg.In(size=(9, 1),
+                            enable_events=True, key="inputAxisX"), ],
+    [sg.Text("y : "), sg.In(size=(9, 1),
+                            enable_events=True, key="inputAxisY"), ],
+    [sg.Button("Submit", size=(20, 1), key="ImgTranslation")],
+
+
 ]
 
 # membuat kolom area 4 : area viewer image output
