@@ -1,5 +1,6 @@
 from PIL import Image, ImageOps
 import math
+from math import floor
 
 
 def ImgNegative(img_input, coldepth):
@@ -124,6 +125,32 @@ def ImgPowerLaw(img_input, coldepth, gamma):
 
             pixels[i, j] = (int(255*(r/255)**gamma),
                             int(255*(g/255)**gamma), int(255*(b/255)**gamma))
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+
+    return img_output
+
+
+def ImgThreshold(img_input, coldepth):
+
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    img_output = Image.new('RGB', (img_input.size[1], img_input.size[0]))
+    pixels = img_output.load()
+    PIXEL = img_input.load()
+
+    for i in range(img_output.size[0]):
+        for j in range(img_output.size[1]):
+            if PIXEL[i, j] < (128, 128, 128):
+                pixels[i, j] = (0, 0, 0)
+            elif PIXEL[i, j] >= (128, 128, 128):
+                pixels[i, j] = (255, 255, 255)
 
     if coldepth == 1:
         img_output = img_output.convert("1")
@@ -292,19 +319,109 @@ def ImgFlippingVerHor(img_input, coldepth):
     return img_output
 
 
-def TranslasiXY(img_input, coldepth, x, y):
+def ImgTranslasi(img_input, coldepth, sumbuTransform):
     if coldepth != 24:
         img_input = img_input.convert('RGB')
-    img_output = Image.new('RGB', (img_input.size[1], img_input.size[0]))
+
+    img_output = Image.new('RGB', (img_input.size[0], img_input.size[1]))
+    pixel = img_input.load()
+    pixels = img_output.load()
+
+    n = 50
+
+    for i in range(img_input.size[0]):
+        for j in range(img_input.size[1]):
+
+            r, g, b = img_input.getpixel((i, j))
+            r = 0
+            g = 0
+            b = 0
+
+            if sumbuTransform == "x":
+                if i <= n:
+                    pixels[i, j] = (r, g, b)
+                else:
+                    pixels[i, j] = pixel[i - n, j]
+            elif sumbuTransform == "y":
+                if j <= n:
+                    pixels[i, j] = (r, g, b)
+                else:
+                    pixels[i, j] = pixel[i, j - n]
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+
+    return img_output
+
+# def TranslasiXY(img_input, coldepth, x, y):
+#     if coldepth != 24:
+#         img_input = img_input.convert('RGB')
+#     img_output = Image.new('RGB', (img_input.size[1], img_input.size[0]))
+#     pixels = img_output.load()
+
+#     for i in range(img_output.size[0]):
+#         for j in range(img_output.size[1]):
+#             r, g, b = img_input.getpixel((i, j))
+#             if i+x < img_output.size[0] and j+y < img_output.size[1]:
+#                 pixels[i, j] = (r, g, b)
+#             else:
+#                 pixels[i, j] = (0, 0, 0)
+#     if coldepth == 1:
+#         img_output = img_output.convert("1")
+#     elif coldepth == 8:
+#         img_output = img_output.convert("L")
+#     else:
+#         img_output = img_output.convert("RGB")
+
+#     return img_output
+
+
+def ImgZoom(img_input, coldepth):
+
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    N = 2
+    rowOut, colOut = int(img_input.size[0]*N), int(img_input.size[1]*N)
+
+    img_output = Image.new('RGB', (rowOut, colOut))
     pixels = img_output.load()
 
     for i in range(img_output.size[0]):
         for j in range(img_output.size[1]):
-            r, g, b = img_input.getpixel((i, j))
-            if i+x < img_output.size[0] and j+y < img_output.size[1]:
-                pixels[i, j] = (r, g, b)
-            else:
-                pixels[i, j] = (0, 0, 0)
+            r, g, b = img_input.getpixel((floor(i/N), floor(j/N)))
+            pixels[i, j] = (r, g, b)
+
+    if coldepth == 1:
+        img_output = img_output.convert("1")
+    elif coldepth == 8:
+        img_output = img_output.convert("L")
+    else:
+        img_output = img_output.convert("RGB")
+
+    return img_output
+
+
+def ImgShrinking(img_input, coldepth):
+
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+    N = 2
+    rowOut, colOut = int(img_input.size[0]/N), int(img_input.size[1]/N)
+
+    img_output = Image.new('RGB', (rowOut, colOut))
+    pixels = img_output.load()
+
+    for i in range(img_output.size[0]):
+        for j in range(img_output.size[1]):
+            r, g, b = img_input.getpixel((floor(i*N), floor(j*N)))
+            pixels[i, j] = (r, g, b)
+
     if coldepth == 1:
         img_output = img_output.convert("1")
     elif coldepth == 8:

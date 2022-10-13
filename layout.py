@@ -66,6 +66,7 @@ list_processing = [
         "Logaritmic", size=(9, 1), key="ImgLogaritmic")],
     [sg.Button("Blending", size=(9, 1), key="ImgBlending"), sg.Button(
         "Power law", size=(9, 1), key="ImgPowerLaw")],
+    [sg.Button("Threshold", size=(9, 1), key="ImgThreshold")],
     [sg.HSeparator()],
     [sg.Text("Image Brightness Slider:"), ],
     [  # slider brightness
@@ -87,11 +88,18 @@ list_processing = [
         9, 2), key="ImgFlippingVerHor")],
     [sg.HSeparator()],
     [sg.Text("Image Translation:"), ],
-    [sg.Text("x : "), sg.In(size=(9, 1),
-                            enable_events=True, key="inputAxisX"), ],
-    [sg.Text("y : "), sg.In(size=(9, 1),
-                            enable_events=True, key="inputAxisY"), ],
-    [sg.Button("Submit", size=(20, 1), key="ImgTranslation")],
+    [sg.Button("thd sb.X", size=(9, 1), key="ImgTranslasiX"),
+     sg.Button("thd sb.Y", size=(9, 1), key=("ImgTranslasiY"))],
+    [sg.HSeparator()],
+    [sg.Text("Image Scalling:"), ],
+    [sg.Button("Zoom", size=(9, 1), key="ImgZoom"), sg.Button(
+        "Shrinking", size=(9, 1), key="ImgShrinking")],
+    [],
+    # [sg.Text("x : "), sg.In(size=(9, 1),
+    #                         enable_events=True, key="inputAxisX"), ],
+    # [sg.Text("y : "), sg.In(size=(9, 1),
+    #                         enable_events=True, key="inputAxisY"), ],
+    # [sg.Button("Submit", size=(20, 1), key="ImgTranslation")],
 
 
 ]

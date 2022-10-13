@@ -143,6 +143,15 @@ while True:
             window["ImgOutputViewer"].update(filename=filename_out)
         except:
             pass
+    elif event == "ImgThreshold":
+
+        try:
+            window["ImgProcessingType"].update("Image Threshold")
+            img_output = ImgThreshold(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
 
     elif event == "ImgFlippingVertikal":
 
@@ -174,17 +183,55 @@ while True:
         except:
             pass
 
-    elif event == "ImgTranslation":
-        try:
+    elif event == "ImgTranslasiX":
 
-            axisX = int(values["inputAxisX"])
-            axisY = int(values["inputAxisY"])
-            window["ImgProcessingType"].update("Translation Image")
-            img_output = TranslasiXY(img_input, coldepth, axisX, axisY)
+        try:
+            window["ImgProcessingType"].update("Image Translasi")
+            img_output = ImgTranslasi(img_input, coldepth, "x")
             img_output.save(filename_out)
             window["ImgOutputViewer"].update(filename=filename_out)
         except:
             pass
 
+    elif event == "ImgTranslasiY":
+
+        try:
+            window["ImgProcessingType"].update("Image Translasi")
+            img_output = ImgTranslasi(img_input, coldepth, "y")
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    # elif event == "ImgTranslation":
+    #     try:
+
+    #         axisX = int(values["inputAxisX"])
+    #         axisY = int(values["inputAxisY"])
+    #         window["ImgProcessingType"].update("Translation Image")
+    #         img_output = TranslasiXY(img_input, coldepth, axisX, axisY)
+    #         img_output.save(filename_out)
+    #         window["ImgOutputViewer"].update(filename=filename_out)
+    #     except:
+    #         pass
+
+    elif event == "ImgZoom":
+
+        try:
+            window["ImgProcessingType"].update("Zoom ")
+            img_output = ImgZoom(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "ImgShrinking":
+
+        try:
+            window["ImgProcessingType"].update("Shrinking")
+            img_output = ImgShrinking(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
 
 window.close()
