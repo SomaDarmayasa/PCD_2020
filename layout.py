@@ -5,7 +5,7 @@ import PySimpleGUI as sg
 
 # definisi masing-masing kolom area
 # key = membutuhkan data sudah diinputkan dikomponen tersebut
-sg.theme("DarkPurple1")
+sg.theme("LightPurple")
 file_list_column = [  # struktur data list
     [
         # komponen text menampilkan tampilan buka folder gambar
