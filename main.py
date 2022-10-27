@@ -81,20 +81,40 @@ while True:
         except:
             pass
 
+    # elif event == "ImgRotate180":
+    #     try:
+    #         window["ImgProcessingType"].update("Image Rotate 180°")
+    #         img_output = ImgRotate180(img_input, coldepth, 180, "C")
+    #         img_output.save(filename_out)
+    #         window["ImgOutputViewer"].update(filename=filename_out)
+
+    #     except:
+    #         pass
+
     elif event == "ImgRotate180":
         try:
             window["ImgProcessingType"].update("Image Rotate 180°")
-            img_output = ImgRotate180(img_input, coldepth, 180, "C")
+            img_output = ImgRotate180(img_input, coldepth, 180)
             img_output.save(filename_out)
             window["ImgOutputViewer"].update(filename=filename_out)
 
         except:
             pass
 
+    # elif event == "ImgRotate270":
+    #     try:
+    #         window["ImgProcessingType"].update("Image Rotate 270°")
+    #         img_output = ImgRotate270(img_input, coldepth, 270, "C")
+    #         img_output.save(filename_out)
+    #         window["ImgOutputViewer"].update(filename=filename_out)
+
+    #     except:
+    #         pass
+
     elif event == "ImgRotate270":
         try:
             window["ImgProcessingType"].update("Image Rotate 270°")
-            img_output = ImgRotate270(img_input, coldepth, 270, "C")
+            img_output = ImgRotate270coba(img_input, coldepth, 270)
             img_output.save(filename_out)
             window["ImgOutputViewer"].update(filename=filename_out)
 
@@ -233,5 +253,143 @@ while True:
             window["ImgOutputViewer"].update(filename=filename_out)
         except:
             pass
+
+    elif event == "ImgTest":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgTest(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgTest2":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgTest2(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgTest3":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgTest3(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgTest4":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgTest4(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgTest5":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgTest5(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "ImgEclipse":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgEclipse(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgFlip2Image":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgFlip2image(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgFlip2Image":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgFlip2image(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgFlip2Image":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgFlip2image(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgBlendsmall":
+
+        try:
+            filename = values['inputImage2']
+            inputImage2 = Image.open(filename)
+            window["ImgProcessingType"].update("Image  Blending small")
+            img_output = ImgBlendsmall(img_input, inputImage2, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgBlendsmall270":
+
+        try:
+            filename = values['inputImage2']
+            inputImage2 = Image.open(filename)
+            window["ImgProcessingType"].update("Image  Blending small")
+            img_output = ImgBlendsmall270(
+                img_input, inputImage2, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgBlendsmall270flip":
+
+        try:
+            filename = values['inputImage2']
+            inputImage2 = Image.open(filename)
+            window["ImgProcessingType"].update("Image  Blending small")
+            img_output = ImgBlendsmall270flip(
+                img_input, inputImage2, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgDiamond":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgDiamond(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
 
 window.close()

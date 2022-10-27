@@ -95,6 +95,23 @@ list_processing = [
     [sg.Button("Zoom", size=(9, 1), key="ImgZoom"), sg.Button(
         "Shrinking", size=(9, 1), key="ImgShrinking")],
     [],
+    [sg.HSeparator()],
+    [sg.Button("Test ", size=(9, 1), key="ImgTest"),
+     sg.Button("Tes2", size=(9, 1), key="ImgTest2"),
+     sg.Button("Tes3", size=(9, 1), key="ImgTest3"),
+     ],
+    [sg.Button("Tes4", size=(9, 1), key="ImgTest4"),
+     sg.Button("Tes5", size=(9, 1), key="ImgTest5"),
+     sg.Button("ImgEclipse", size=(9, 1), key="ImgEclipse"),
+     ],
+    [
+        sg.Button("ImgFlip2Image", size=(9, 1), key="ImgFlip2Image"),
+        sg.Button("ImgBlendsmall", size=(9, 1), key="ImgBlendsmall"),
+        sg.Button("ImgBlendsmall270", size=(9, 1), key="ImgBlendsmall270"), ],
+
+    [sg.Button("ImgBlendsmall270flip", size=(
+        9, 1), key="ImgBlendsmall270flip"), sg.Button("ImgDiamond", size=(
+            9, 1), key="ImgDiamond"), ],
     # [sg.Text("x : "), sg.In(size=(9, 1),
     #                         enable_events=True, key="inputAxisX"), ],
     # [sg.Text("y : "), sg.In(size=(9, 1),
