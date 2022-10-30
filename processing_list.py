@@ -850,7 +850,7 @@ def ImgBlendsmall270flip(img_input, imgInput2, coldepth):
 
         imgInput2 = ImgShrinking(imgInput2, coldepth)
         # imgInput2 = ImgRotate270coba(imgInput2, coldepth, direction=270)
-        imgInput2 = ImgFlippingHorizontal(imgInput2, coldepth)
+        # imgInput2 = ImgFlippingHorizontal(imgInput2, coldepth)
         # img_input = ImgRotate180(img_input, coldepth, direction=180)
         img_input = img_input.convert('RGB')
         imgInput2 = imgInput2.convert('RGB')
@@ -865,13 +865,76 @@ def ImgBlendsmall270flip(img_input, imgInput2, coldepth):
     pixelsbaru = img_output.load()
     for i in range(horizontalSize):
         for j in range(verticalSize):
-            if i < horizontalSize2 and j < verticalSize2:
+            # put the image 2 in the middle of image 1
+            # if i > horizontalSize//2-horizontalSize2//2 and i < horizontalSize//2+horizontalSize2//2 and j > verticalSize//2-verticalSize2//2 and j < verticalSize//2+verticalSize2//2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2+horizontalSize2//2, j-verticalSize//2+verticalSize2//2]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # put the image 2 in the middle right of image 1
+            # if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > verticalSize//2-verticalSize2//2 and j < verticalSize//2+verticalSize2//2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2, j-verticalSize//2+verticalSize2//2]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # put the image 2 in the button right of image 1
+            # if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > verticalSize//2 and j < verticalSize//2+verticalSize2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2, j-verticalSize//2]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # put the image 2 in the up right corner of image 1
+            # if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > 0 and j < verticalSize2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2, j]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # put the image 2 in the corner of image 1
+            # if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > verticalSize//2 and j < verticalSize//2+verticalSize2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2, j-verticalSize//2]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # put the image 2 in right corner up of image 1
+            if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > verticalSize//2-verticalSize2 and j < verticalSize//2:
                 r1, g1, b1 = pixels[i, j]
-                r2, g2, b2 = pixels2[i, j]
+                r2, g2, b2 = pixels2[i-horizontalSize //
+                                     2, j-verticalSize//2+verticalSize2]
                 pixelsbaru[i, j] = (r1//2+r2//2, g1//2+g2//2, b1//2+b2//2)
 
             else:
                 pixelsbaru[i, j] = pixels[i, j]
+
+            # if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > verticalSize//2 and j < verticalSize//2+verticalSize2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2, j-verticalSize//2]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # if i > horizontalSize//2 and i < horizontalSize//2+horizontalSize2 and j > 0 and j < verticalSize2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i-horizontalSize//2, j]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+            #     newPixels[i, j] = pixels[i, j]
+
+            # if i< horizontalSize2 and j < verticalSize2:
+            #     r, g, b = pixels[i, j]
+            #     r2, g2, b2 = pixels2[i, j]
+            #     newPixels[i, j] = (r//2+r2//2, g//2+g2//2, b//2+b2//2)
+            # else:
+                # newPixels[i, j] = pixels[i, j]
 
     if coldepth == 1:
         img_output = img_output.convert("1")
@@ -959,11 +1022,31 @@ def ImgRotate180(img_input, coldepth, direction=180):
         img_output = img_output.convert("RGB")
     return img_output
 
+# make function to rotate 90 degree in image
 
 
+# def ImgRotate90(img_input, coldepth, direction=90):
+#     if coldepth != 24:
+#         img_input = img_input.convert('RGB')
 
+#     pixels = img_input.load()
+#     horizontalSize = img_input.size[0]
+#     verticalSize = img_input.size[1]
+#     img_output = Image.new("RGB", (verticalSize, horizontalSize))
+#     newPixels = img_output.load()
+#     if direction == 90:
+#         for i in range(horizontalSize):
+#             for j in range(verticalSize):
+#                 r, g, b = pixels[i, j]
+#                 newPixels[j, horizontalSize-1-i] = (r, g, b)
 
-
+#     if coldepth == 1:
+#         img_output = img_output.convert("1")
+#     elif coldepth == 8:
+#         img_output = img_output.convert("L")
+#     else:
+#         img_output = img_output.convert("RGB")
+#     return img_output
 
 
 # def ImgKotakkecil(img_input, coldepth):
@@ -1112,8 +1195,6 @@ def ImgRotate180(img_input, coldepth, direction=180):
 #     return img_output
 
 
-
-
 def ImgDiamond(img_input, coldepth):
     if coldepth != 24:
         img_input = img_input.convert('RGB')
@@ -1124,11 +1205,11 @@ def ImgDiamond(img_input, coldepth):
     npixels = img_output.load()
     for i in range(horizontalSize):
         for j in range(verticalSize):
-            r, g, b = pixels[i,j]
+            r, g, b = pixels[i, j]
             if abs(i - horizontalSize//2) + abs(j - verticalSize//2) < horizontalSize//2:
                 npixels[i, j] = (255-r, 255-g, 255-b)
             else:
-                npixels[i,j] = (r, g, b)
+                npixels[i, j] = (r, g, b)
 
     if coldepth == 1:
         img_output = img_output.convert("1")
@@ -1138,3 +1219,69 @@ def ImgDiamond(img_input, coldepth):
         img_output = img_output.convert("RGB")
 
     return img_output
+
+
+# def ImgFlip2imagerotate(img_input, coldepth):
+#     if coldepth != 24:
+#         img_input = img_input.convert('RGB')
+
+#     pixels = img_input.load()
+#     horizontalSize = img_input.size[0]
+#     verticalSize = img_input.size[1]
+
+#     img_output = Image.new("RGB", (horizontalSize*2, verticalSize*2))
+
+#     newPixels = img_output.load()
+#     for i in range(horizontalSize):
+#         for j in range(verticalSize):
+#             r, g, b = pixels[i, j]
+#             newPixels[i, j] = (r, g, b)
+#             newPixels[i, verticalSize*2-1-j] = (r, g, b)
+#             newPixels[horizontalSize*2-1-i, j] = (r, g, b)
+#             r, g, b = img_output.getpixel((j, img_output.size[0]-i-1))
+#             newPixels[i+img_input.size[0],
+#                       j+img_input.size[1]] = (r, g, b)
+
+#     if coldepth == 1:
+#         img_output = img_output.convert("1")
+#     elif coldepth == 8:
+#         img_output = img_output.convert("L")
+#     else:
+#         img_output = img_output.convert("RGB")
+#     return img_output
+
+def ImgFlip2imagerotate(img_input, coldepth):
+    if coldepth != 24:
+        img_input = img_input.convert('RGB')
+
+        img_output = Image.new(
+            'RGB', (int(img_input.size[1]/2), int(img_input.size[0]/2)))
+        pixels = img_output.load()
+
+        for i in range(img_output.size[0]):
+            for j in range(img_output.size[1]):
+                r, g, b = img_input.getpixel((i*2, j*2))
+                pixels[i, j] = (r, g, b)
+
+        canvas = Image.new('RGB', (img_input.size[0], img_input.size[1]))
+        canvas_pixels = canvas.load()
+
+        for i in range(img_output.size[0]):
+            for j in range(img_output.size[1]):
+                r, g, b = img_output.getpixel((i, j))
+                canvas_pixels[i, j] = (r, g, b)
+                canvas_pixels[img_output.size[0]*2-1-i, j] = (r, g, b)
+                canvas_pixels[i, img_output.size[1]*2-1-j] = (r, g, b)
+
+                r, g, b = img_output.getpixel((j, img_output.size[0]-i-1))
+                canvas_pixels[i+img_output.size[0],
+                              j+img_output.size[1]] = (r, g, b)
+
+        if coldepth == 1:
+            img_output = img_output.convert("1")
+        elif coldepth == 8:
+            img_output = img_output.convert("L")
+        else:
+            img_output = img_output.convert("RGB")
+
+        return canvas

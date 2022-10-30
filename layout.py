@@ -61,57 +61,63 @@ image_viewer_column = [
 
 list_processing = [
 
-    [sg.Text("Feature :")],
-    [sg.Button("Negative", size=(9, 1), key="ImgNegative"), sg.Button(
-        "Logaritmic", size=(9, 1), key="ImgLogaritmic")],
-    [sg.Button("Blending", size=(9, 1), key="ImgBlending"), sg.Button(
-        "Power law", size=(9, 1), key="ImgPowerLaw")],
-    [sg.Button("Threshold", size=(9, 1), key="ImgThreshold")],
-    [sg.HSeparator()],
-    [sg.Text("Image Brightness Slider:"), ],
-    [  # slider brightness
-        sg.Slider(range=(-255, 255), size=(19, 20),
-                  orientation='h',
-                  key="SliderBrightness",
-                  default_value=0), ],
-    [sg.Button("Image Brightness", size=(20, 1), key="ImgBrightness")],
-    [sg.HSeparator()],
-    [sg.Text("Image Rotate:"), ],
-    [sg.Button("90°", size=(9, 1), key="ImgRotate90"),
-     sg.Button("180°", size=(9, 1), key="ImgRotate180")],
-    [sg.Button("270°", size=(9, 1), key="ImgRotate270")],
-    [sg.HSeparator()],
-    [sg.Text("Image Flipping:"), ],
-    [sg.Button("Vertikal", size=(9, 1), key="ImgFlippingVertikal"),
-     sg.Button("Horizontal", size=(9, 1), key="ImgFlippingHorizontal")],
-    [sg.Button("Vertikal Horizontal  ", size=(
-        9, 2), key="ImgFlippingVerHor")],
-    [sg.HSeparator()],
-    [sg.Text("Image Translation:"), ],
-    [sg.Button("thd sb.X", size=(9, 1), key="ImgTranslasiX"),
-     sg.Button("thd sb.Y", size=(9, 1), key=("ImgTranslasiY"))],
-    [sg.HSeparator()],
-    [sg.Text("Image Scalling:"), ],
-    [sg.Button("Zoom", size=(9, 1), key="ImgZoom"), sg.Button(
-        "Shrinking", size=(9, 1), key="ImgShrinking")],
-    [],
-    [sg.HSeparator()],
-    [sg.Button("Test ", size=(9, 1), key="ImgTest"),
-     sg.Button("Tes2", size=(9, 1), key="ImgTest2"),
-     sg.Button("Tes3", size=(9, 1), key="ImgTest3"),
-     ],
-    [sg.Button("Tes4", size=(9, 1), key="ImgTest4"),
-     sg.Button("Tes5", size=(9, 1), key="ImgTest5"),
-     sg.Button("ImgEclipse", size=(9, 1), key="ImgEclipse"),
-     ],
-    [
-        sg.Button("ImgFlip2Image", size=(9, 1), key="ImgFlip2Image"),
-        sg.Button("ImgBlendsmall", size=(9, 1), key="ImgBlendsmall"),
-        sg.Button("ImgBlendsmall270", size=(9, 1), key="ImgBlendsmall270"), ],
+    # [sg.Text("Feature :")],
+    # [sg.Button("Negative", size=(9, 1), key="ImgNegative"), sg.Button(
+    #     "Logaritmic", size=(9, 1), key="ImgLogaritmic")],
+    # [sg.Button("Blending", size=(9, 1), key="ImgBlending"), sg.Button(
+    #     "Power law", size=(9, 1), key="ImgPowerLaw")],
+    # [sg.Button("Threshold", size=(9, 1), key="ImgThreshold")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Brightness Slider:"), ],
+    # [  # slider brightness
+    #     sg.Slider(range=(-255, 255), size=(19, 20),
+    #               orientation='h',
+    #               key="SliderBrightness",
+    #               default_value=0), ],
+    # [sg.Button("Image Brightness", size=(20, 1), key="ImgBrightness")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Rotate:"), ],
+    # [sg.Button("90°", size=(9, 1), key="ImgRotate90"),
+    #  sg.Button("180°", size=(9, 1), key="ImgRotate180")],
+    # [sg.Button("270°", size=(9, 1), key="ImgRotate270")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Flipping:"), ],
+    # [sg.Button("Vertikal", size=(9, 1), key="ImgFlippingVertikal"),
+    #  sg.Button("Horizontal", size=(9, 1), key="ImgFlippingHorizontal")],
+    # [sg.Button("Vertikal Horizontal  ", size=(
+    #     9, 2), key="ImgFlippingVerHor")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Translation:"), ],
+    # [sg.Button("thd sb.X", size=(9, 1), key="ImgTranslasiX"),
+    #  sg.Button("thd sb.Y", size=(9, 1), key=("ImgTranslasiY"))],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Scalling:"), ],
+    # [sg.Button("Zoom", size=(9, 1), key="ImgZoom"), sg.Button(
+    #     "Shrinking", size=(9, 1), key="ImgShrinking")],
+    # [],
+    # [sg.HSeparator()],
+    # [sg.Button("Test ", size=(9, 1), key="ImgTest"),
+    #  sg.Button("Tes2", size=(9, 1), key="ImgTest2"),
+    #  sg.Button("Tes3", size=(9, 1), key="ImgTest3"),
+    #  ],
+    # [sg.Button("Tes4", size=(9, 1), key="ImgTest4"), ],
 
-    [sg.Button("ImgBlendsmall270flip", size=(
-        9, 1), key="ImgBlendsmall270flip"), sg.Button("ImgDiamond", size=(
-            9, 1), key="ImgDiamond"), ],
+    [sg.Button("ImgEclipse", size=(12, 1), key="ImgEclipse"),
+     sg.Button("ImgDiamond", size=(
+         12, 1), key="ImgDiamond"),
+     ],
+    [sg.Button("Flip2Image", size=(12, 1), key="ImgFlip2Image"),
+     sg.Button("Negative Triangle", size=(12, 1), key="ImgTest5"), ],
+    [
+
+        sg.Button("Blendsmall", size=(12, 1), key="ImgBlendsmall"),
+        sg.Button("Blendsmall270", size=(12, 1), key="ImgBlendsmall270"), ],
+
+    [sg.Button("Blendsmall270flip", size=(
+        12, 1), key="ImgBlendsmall270flip"),
+        sg.Button("Flip2Imagerotate", size=(
+            12, 1), key="ImgFlip2Imagerotate"),
+     ],
     # [sg.Text("x : "), sg.In(size=(9, 1),
     #                         enable_events=True, key="inputAxisX"), ],
     # [sg.Text("y : "), sg.In(size=(9, 1),

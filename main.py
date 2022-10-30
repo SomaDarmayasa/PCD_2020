@@ -80,6 +80,16 @@ while True:
 
         except:
             pass
+    # elif event == "ImgRotate90":
+
+    #     try:
+    #         window["ImgProcessingType"].update("Image Rotate 90°")
+    #         img_output = ImgRotate90(img_input, coldepth, 90)
+    #         img_output.save(filename_out)
+    #         window["ImgOutputViewer"].update(filename=filename_out)
+
+    #     except:
+    #         pass
 
     # elif event == "ImgRotate180":
     #     try:
@@ -333,11 +343,11 @@ while True:
         except:
             pass
 
-    elif event == "ImgFlip2Image":
+    elif event == "ImgFlip2Imagerotate":
 
         try:
             window["ImgProcessingType"].update("testing")
-            img_output = ImgFlip2image(img_input, coldepth)
+            img_output = ImgFlip2imagerotate(img_input, coldepth)
             img_output.save(filename_out)
             window["ImgOutputViewer"].update(filename=filename_out)
         except:
@@ -390,6 +400,5 @@ while True:
             window["ImgOutputViewer"].update(filename=filename_out)
         except:
             pass
-
 
 window.close()
