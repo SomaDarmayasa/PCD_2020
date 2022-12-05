@@ -401,4 +401,121 @@ while True:
         except:
             pass
 
+    elif event == "ImgMean":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgMean(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgMedianFilter":
+
+        try:
+            window["ImgProcessingType"].update("testing")
+            img_output = ImgMedianFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgMinFilter":
+
+        try:
+            window["ImgProcessingType"].update("MinFilter")
+            img_output = ImgMinFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ImgMaxFilter":
+
+        try:
+            window["ImgProcessingType"].update("MaxFilter")
+            img_output = ImgMaxFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "WeightMeanFilter":
+
+        try:
+            window["ImgProcessingType"].update("WeightMeanFilter")
+            img_output = WeightMeanFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "GradienFilter":
+
+        try:
+            window["ImgProcessingType"].update("GradienFilter")
+            img_output = GradientFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "CenterDifFilter":
+
+        try:
+            window["ImgProcessingType"].update("CenterDifFilter")
+            img_output = CenterDifFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "SobelFilter":
+
+        try:
+            window["ImgProcessingType"].update("SobelFilter")
+            img_output = SobelFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "PrewittFilter":
+
+        try:
+            window["ImgProcessingType"].update("PrewittFilter")
+            img_output = PrewittFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "RobertFilter":
+
+        try:
+            window["ImgProcessingType"].update("RobertFilter")
+            img_output = RobertFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "LaplacianFilter":
+
+        try:
+            window["ImgProcessingType"].update("LaplacianFilter")
+            img_output = LaplacianFilter(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    # elif event == "ImgTriangle":
+
+    #     try:
+    #         window["ImgProcessingType"].update("testing")
+    #         img_output = ImgStar(img_input, coldepth)
+    #         img_output.save(filename_out)
+    #         window["ImgOutputViewer"].update(filename=filename_out)
+    #     except:
+    #         pass
+
 window.close()
