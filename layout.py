@@ -62,30 +62,30 @@ image_viewer_column = [
 list_processing = [
 
     [sg.Text("Feature :")],
-    [sg.Button("Negative", size=(9, 1), key="ImgNegative"), sg.Button(
-        "Logaritmic", size=(9, 1), key="ImgLogaritmic")],
-    [sg.Button("Blending", size=(9, 1), key="ImgBlending"), sg.Button(
-        "Power law", size=(9, 1), key="ImgPowerLaw")],
-    [sg.Button("Threshold", size=(9, 1), key="ImgThreshold")],
-    [sg.HSeparator()],
-    [sg.Text("Image Brightness Slider:"), ],
-    [  # slider brightness
-        sg.Slider(range=(-255, 255), size=(19, 20),
-                  orientation='h',
-                  key="SliderBrightness",
-                  default_value=0), ],
-    [sg.Button("Image Brightness", size=(20, 1), key="ImgBrightness")],
-    [sg.HSeparator()],
-    [sg.Text("Image Rotate:"), ],
-    [sg.Button("90°", size=(9, 1), key="ImgRotate90"),
-     sg.Button("180°", size=(9, 1), key="ImgRotate180")],
-    [sg.Button("270°", size=(9, 1), key="ImgRotate270")],
-    [sg.HSeparator()],
-    [sg.Text("Image Flipping:"), ],
-    [sg.Button("Vertikal", size=(9, 1), key="ImgFlippingVertikal"),
-     sg.Button("Horizontal", size=(9, 1), key="ImgFlippingHorizontal")],
-    [sg.Button("Vertikal Horizontal  ", size=(
-        9, 2), key="ImgFlippingVerHor")],
+    # [sg.Button("Negative", size=(9, 1), key="ImgNegative"), sg.Button(
+    #     "Logaritmic", size=(9, 1), key="ImgLogaritmic")],
+    # [sg.Button("Blending", size=(9, 1), key="ImgBlending"), sg.Button(
+    #     "Power law", size=(9, 1), key="ImgPowerLaw")],
+    # [sg.Button("Threshold", size=(9, 1), key="ImgThreshold")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Brightness Slider:"), ],
+    # [  # slider brightness
+    #     sg.Slider(range=(-255, 255), size=(19, 20),
+    #               orientation='h',
+    #               key="SliderBrightness",
+    #               default_value=0), ],
+    # [sg.Button("Image Brightness", size=(20, 1), key="ImgBrightness")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Rotate:"), ],
+    # [sg.Button("90°", size=(9, 1), key="ImgRotate90"),
+    #  sg.Button("180°", size=(9, 1), key="ImgRotate180")],
+    # [sg.Button("270°", size=(9, 1), key="ImgRotate270")],
+    # [sg.HSeparator()],
+    # [sg.Text("Image Flipping:"), ],
+    # [sg.Button("Vertikal", size=(9, 1), key="ImgFlippingVertikal"),
+    #  sg.Button("Horizontal", size=(9, 1), key="ImgFlippingHorizontal")],
+    # [sg.Button("Vertikal Horizontal  ", size=(
+    #     9, 2), key="ImgFlippingVerHor")],
     [sg.HSeparator()],
     # [sg.Text("Image Translation:"), ],
     # [sg.Button("thd sb.X", size=(9, 1), key="ImgTranslasiX"),
@@ -148,9 +148,22 @@ list_processing = [
      sg.Button("RobertF", size=(10, 1), key="RobertFilter"),
      ],
     [sg.Button("LaplacianF", size=(10, 1), key="LaplacianFilter"),
-     
+
      ],
-    
+    [sg.HSeparator()],
+    [sg.Button("ErosionF", size=(10, 1), key="ErosionFilter"),
+     sg.Button("DilationF", size=(10, 1), key="DilationFilter"),
+
+     ],
+    [sg.Button("OpeningF", size=(10, 1), key="OpeningFilter"),
+     sg.Button("ClosingF", size=(10, 1), key="ClosingFilter"),
+
+     ],
+    [sg.Button("WhiteTopHatF", size=(10, 1), key="WhiteTopHatFilter"),
+     sg.Button("BlackTopHatF", size=(10, 1), key="BlackTopHatFilter"),
+
+     ],
+
 
 
 ]

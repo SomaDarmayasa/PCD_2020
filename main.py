@@ -508,6 +508,64 @@ while True:
         except:
             pass
 
+    elif event == "ErosionFilter":
+
+        try:
+            window["ImgProcessingType"].update("ErosionFilter")
+            img_output = Erosion(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "DilationFilter":
+
+        try:
+            window["ImgProcessingType"].update("DilationFilter")
+            img_output = Dilation(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "OpeningFilter":
+
+        try:
+            window["ImgProcessingType"].update("OpeningFilter")
+            img_output = Opening(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
+    elif event == "ClosingFilter":
+
+        try:
+            window["ImgProcessingType"].update("ClosingFilter")
+            img_output = Closing(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "WhiteTopHatFilter":
+
+        try:
+            window["ImgProcessingType"].update("WhiteTopHatFilter")
+            img_output = WhiteTopHat(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+    elif event == "BlackTopHatFilter":
+
+        try:
+            window["ImgProcessingType"].update("BlackTopHatFilter")
+            img_output = BlackTopHat(img_input, coldepth)
+            img_output.save(filename_out)
+            window["ImgOutputViewer"].update(filename=filename_out)
+        except:
+            pass
+
     # elif event == "ImgTriangle":
 
     #     try:
